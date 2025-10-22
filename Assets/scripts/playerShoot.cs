@@ -18,6 +18,7 @@ public class playerShoot : MonoBehaviour
         if (!canShoot)
         {
             timer += Time.deltaTime;
+
             if( timer > timeBetweenShots)
             {
                 canShoot = true;
