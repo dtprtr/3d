@@ -7,11 +7,11 @@ public class lookAtMouse : MonoBehaviour
 
     float angle;
 
-    // Update is called once per frame
+    
     void Update()
     {
         LAmouse();
-        Debug.Log(angle);
+        
     }
 
     private void LAmouse()
