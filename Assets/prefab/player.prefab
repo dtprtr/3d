@@ -165,7 +165,7 @@ MonoBehaviour:
   damageMask:
     serializedVersion: 2
     m_Bits: 0
-  boxSize: {x: 0, y: 0, z: 0}
+  boxSize: {x: 0.3, y: 0.8, z: 0.3}
   castDistance: 0
   gravity: -9.81
 --- !u!136 &5300129882943520285
@@ -215,6 +215,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0177cc3eb95724e40bce83528e1362d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canShoot: 0
+  timer: 0
+  bulletPrefab: {fileID: 0}
+  bulletTransform: {fileID: 0}
 --- !u!1 &3883938719636901614
 GameObject:
   m_ObjectHideFlags: 0

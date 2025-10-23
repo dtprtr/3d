@@ -54,7 +54,7 @@ public class character_movement : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position + Vector3.down * castDistance, boxSize * 2);
     }
 }

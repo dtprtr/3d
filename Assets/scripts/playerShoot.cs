@@ -3,8 +3,8 @@ using UnityEngine;
 public class playerShoot : MonoBehaviour
 {
     public bool canShoot;
-    private float timeBetweenShots;
-    public float timer;
+    public float timeBetweenShots;
+  private float timer;
     public GameObject bulletPrefab;
     public Transform bulletTransform;
     void Start()
@@ -31,6 +31,9 @@ public class playerShoot : MonoBehaviour
             Shoot();
         }
     }
+
+
+
 
     private void Shoot()
     {
