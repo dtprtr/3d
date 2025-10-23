@@ -13,6 +13,14 @@ public class character_movement : MonoBehaviour
     public Vector3 boxSize;
     public float castDistance;
 
+
+    public int maxHealth = 100;
+    public int currentHealth;
+
+
+
+
+
     [HideInInspector] public float gravity = -9.81f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -24,6 +32,11 @@ public class character_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        
+
+
         // Plan (pseudocode):
         // 1. Read horizontal and vertical input axes into a Vector3 (x,z).
         // 2. Preserve analog magnitude when < 1 (joystick) but prevent diagonal speed boost:
