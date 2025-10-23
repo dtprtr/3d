@@ -122,13 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9c07c604e107b4f8e7cd6fd23844cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 4
   rb: {fileID: 7027724121074285674}
   damage: 2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
-  lifeTime: 1
 --- !u!54 &7027724121074285674
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,7 +150,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
