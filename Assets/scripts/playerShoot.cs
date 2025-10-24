@@ -4,9 +4,10 @@ public class playerShoot : MonoBehaviour
 {
     public bool canShoot;
     public float timeBetweenShots;
-  private float timer;
+    private float timer;
     public GameObject bulletPrefab;
     public Transform bulletTransform;
+        
     void Start()
     {
         
@@ -27,9 +28,15 @@ public class playerShoot : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && canShoot)
         {
+
             canShoot = false;
             Shoot();
         }
+
+
+
+
+
     }
 
 
@@ -37,7 +44,7 @@ public class playerShoot : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(bulletPrefab, bulletTransform.position, Quaternion.identity);
+        Instantiate(bulletPrefab, bulletTransform.position, bulletTransform.rotation);
 
     }
 }
