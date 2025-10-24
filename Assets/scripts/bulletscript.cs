@@ -1,35 +1,41 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class bulletscript : MonoBehaviour
 {
     public float speed;
     public Rigidbody rb;
-    public int damage;
+    public float damage;
     public LayerMask enemyLayer;
+    public LayerMask playerLayer;
     public float lifeTime;
+    
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb.linearVelocity = transform.forward * speed;
-        
+
     }
 
     void Update()
     {
+       
         Destroy(gameObject, lifeTime);
     }
 
 
-    private void OnTriggerEnter()
+    public void OnTriggerEnter(Collider hit)
     {
-        if ( gameObject.layer == enemyLayer)
+        
+      enemyMoveAttack enemy = hit.GetComponent<enemyMoveAttack>();
+        if (enemy != null)
         {
-            // Deal damage to enemy
-
+            enemy.TakeDamage(3);
         }
-            
-            
-            
+        Destroy(gameObject);
+        Debug.Log("hit " + hit.name);
     }
 }

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4471910352318615892}
   - component: {fileID: 8447806471270772743}
   - component: {fileID: 7983526350778113814}
-  - component: {fileID: 8155127755481617494}
   - component: {fileID: 6080662896246656538}
+  - component: {fileID: 2917067045488571179}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -110,26 +110,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8155127755481617494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6926579994127410091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf7ed9940770054daae2b224bbf0289, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 43a3af10d71e1df4eb0c62433c112a62, type: 2}
-  player: {fileID: 0}
-  damageToPlayerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  boxSize: {x: 0.5, y: 1, z: 0.5}
-  castDistance: 0
-  controller: {fileID: 6080662896246656538}
 --- !u!143 &6080662896246656538
 CharacterController:
   m_ObjectHideFlags: 0
@@ -155,3 +135,24 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2917067045488571179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6926579994127410091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf7ed9940770054daae2b224bbf0289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 43a3af10d71e1df4eb0c62433c112a62, type: 2}
+  toPlayer: {fileID: 0}
+  player: {fileID: 2977443167949794637, guid: 5e591d559657ec442863da2f7e48fd1e, type: 3}
+  damageFromBullet:
+    serializedVersion: 2
+    m_Bits: 0
+  boxSize: {x: 0.5, y: 1, z: 0.5}
+  castDistance: 0
+  controller: {fileID: 6080662896246656538}

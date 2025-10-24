@@ -1,47 +1,50 @@
+using JetBrains.Annotations;
+using System;
 using UnityEngine;
 
 public class enemyMoveAttack : MonoBehaviour
 {
     [SerializeField]
     enemyscriptable enemyData;
-    private Transform toPlayer;
+    [SerializeField]
+    public float currentHealth;
     public GameObject player;
+    bulletscript bullet;
 
-    public LayerMask damageToPlayerMask;
 
-    public Vector3 boxSize;
-    public float castDistance;
 
     public CharacterController controller;
     void Start()
     {
+       currentHealth = enemyData.maxhealth;
         GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+ 
+
+
         transform.LookAt(player.transform);
         controller.Move(transform.forward * enemyData.speed * Time.deltaTime);
 
-        if (HitPlayer())
-        {
-
-           
-        }
-
-    }
-
-
-    public bool HitPlayer()
-    {
-        transform.LookAt(player.transform);
-        return Physics.BoxCast(transform.position, boxSize, Vector3.down, Quaternion.identity, castDistance);
-    }
-    private void OnDrawGizmos()
-    {
         
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position + Vector3.down * castDistance, boxSize * 2);
+
+       
+    }
+
+   public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }
