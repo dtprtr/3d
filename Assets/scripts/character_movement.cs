@@ -70,5 +70,20 @@ public class character_movement : MonoBehaviour
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position + Vector3.down * castDistance, boxSize * 2);
     }
+
+    public void health()
+    {
+       currentHealth = maxHealth;
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        
+
+        if(currentHealth< 0)
+        {
+            currentHealth = 0;
+        }
+    }
 }
 

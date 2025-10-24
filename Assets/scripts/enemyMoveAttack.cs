@@ -35,11 +35,12 @@ public class enemyMoveAttack : MonoBehaviour
 
     public bool HitPlayer()
     {
+        transform.LookAt(player.transform);
         return Physics.BoxCast(transform.position, boxSize, Vector3.down, Quaternion.identity, castDistance);
     }
     private void OnDrawGizmos()
     {
-        transform.LookAt(player.transform);
+        
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position + Vector3.down * castDistance, boxSize * 2);
     }
