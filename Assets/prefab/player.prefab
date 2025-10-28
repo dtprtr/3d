@@ -98,9 +98,9 @@ GameObject:
   - component: {fileID: 3307767666905853744}
   - component: {fileID: 5232951453105718276}
   - component: {fileID: 1775639623650767199}
+  - component: {fileID: 7088317539784791313}
   - component: {fileID: 5300129882943520285}
   - component: {fileID: -2668488800312062882}
-  - component: {fileID: 7088317539784791313}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -162,14 +162,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  damageMask:
-    serializedVersion: 2
-    m_Bits: 0
-  boxSize: {x: 0.3, y: 0.8, z: 0.3}
-  castDistance: 0
-  maxHealth: 100
-  currentHealth: 0
   gravity: -9.81
+--- !u!114 &7088317539784791313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977443167949794637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0177cc3eb95724e40bce83528e1362d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canShoot: 0
+  timeBetweenShots: 0
+  bulletPrefab: {fileID: 0}
+  bulletTransform: {fileID: 0}
 --- !u!136 &5300129882943520285
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -205,22 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477241d5439be7140b1d196b26eac7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7088317539784791313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2977443167949794637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0177cc3eb95724e40bce83528e1362d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canShoot: 0
-  timeBetweenShots: 0
-  bulletPrefab: {fileID: 0}
-  bulletTransform: {fileID: 0}
 --- !u!1 &3883938719636901614
 GameObject:
   m_ObjectHideFlags: 0

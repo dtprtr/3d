@@ -124,12 +124,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   rb: {fileID: 7027724121074285674}
-  damage: 2
+  damage: 6
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
   lifeTime: 1
-  e: {fileID: 0}
 --- !u!54 &7027724121074285674
 Rigidbody:
   m_ObjectHideFlags: 0

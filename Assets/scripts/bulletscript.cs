@@ -33,7 +33,7 @@ public class bulletscript : MonoBehaviour
       enemyMoveAttack enemy = hit.GetComponent<enemyMoveAttack>();
         if (enemy != null)
         {
-            enemy.TakeDamage(3);
+            enemy.TakeDamage(damage);
         }
         Destroy(gameObject);
         Debug.Log("hit " + hit.name);
