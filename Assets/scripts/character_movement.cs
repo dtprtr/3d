@@ -1,5 +1,6 @@
 using System.Collections;
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class character_movement : MonoBehaviour
@@ -11,16 +12,7 @@ public class character_movement : MonoBehaviour
     public float currentHealth;
     public float maxHealth;
 
-   
 
-
-
-
-   
-        
-     
-   
-  
 
     private void Start()
 
@@ -42,11 +34,10 @@ public class character_movement : MonoBehaviour
             move = move.normalized;
         }
         controller.Move(move * speed * Time.deltaTime);
-
         
 
-    
-
+        
+       
 
     }
 
@@ -58,11 +49,11 @@ public class character_movement : MonoBehaviour
             Die();
         }
     }
-    void Die()
-    {
-        
+    
+   void Die()
+   {
         Destroy(gameObject);
-    }
-
+        Debug.Log("Player has died.");
+   }
+    
 }
-

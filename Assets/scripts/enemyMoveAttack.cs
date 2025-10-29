@@ -1,22 +1,22 @@
 using JetBrains.Annotations;
 using System;
+
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class enemyMoveAttack : MonoBehaviour
 {
-    [SerializeField]
-    enemyscriptable enemyData;
-    [SerializeField]
+    public enemyscriptable enemyData;
+    
     public float currentHealth;
     public GameObject player;
 
     public float timeBetweenAttacks;
+    public float radius;
     private float timer;
 
-    public float range;
-    public LayerMask playerLayer;
 
+    private bool isPlayerInRange;
 
 
     private character_movement playermove;
@@ -24,34 +24,60 @@ public class enemyMoveAttack : MonoBehaviour
     void Start()
     {
         currentHealth = enemyData.maxhealth;
+        playermove = FindFirstObjectByType<character_movement>();
         GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerhit();
-
+       
+        
         if (player != null)
         {
             transform.LookAt(player.transform);
             controller.Move(transform.forward * enemyData.speed * Time.deltaTime);
         }
 
+        hurtBox();
+    }
 
-        if (timer <= 0 && playermove)
+    public void hurtBox()
+    {
+        timer += Time.deltaTime;
+        if(player == null)
         {
-            playermove?.TakeDamage(enemyData.damage);
-            timer = timeBetweenAttacks;
+            return;
+        }
+        if (Vector3.Distance(transform.position,player.transform.position)<radius) 
+        {
+            if (!isPlayerInRange)
+            {
+                DealDamage();
+                timer = 0f;
+
+                isPlayerInRange = true;
+            }
+            else
+            {
+                if (timer >= timeBetweenAttacks)
+                {
+                    DealDamage();
+                    timer = 0f;
+                }
+            }
         }
         else
         {
-            timer -= Time.deltaTime;
+            isPlayerInRange = false;
         }
     }
-
-
-
+    //deal damage function
+    public void DealDamage()
+    {
+        //collides with boxcaster of player
+        playermove.TakeDamage(enemyData.damage);
+    }
 
     //take damage function
     public void TakeDamage(float damage)
@@ -67,24 +93,11 @@ public class enemyMoveAttack : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void playerhit()
-    {
-       RaycastHit hit;
-        Physics.Raycast(transform.position, transform.forward, out hit, range, playerLayer);
-       if (hit.collider != null)
-        {
-            Debug.Log("Player hit");
-            playermove = hit.collider.GetComponent<character_movement>();
-        }
-
-    }
-
-    public void OnDrawGizmosSelected()
+    //draw gizmos for attack radius
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, transform.forward * range);
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 
-
-
-}   
+}
