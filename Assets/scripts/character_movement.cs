@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-
+using TMPro;
 public class character_movement : MonoBehaviour
 {
     private CharacterController controller;
@@ -12,7 +12,7 @@ public class character_movement : MonoBehaviour
     public float currentHealth;
     public float maxHealth;
 
-
+    
 
     private void Start()
 

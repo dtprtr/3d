@@ -9,7 +9,8 @@ public class enemyMoveAttack : MonoBehaviour
     public enemyscriptable enemyData;
     
     public float currentHealth;
-    public GameObject player;
+    private GameObject player;
+    
 
     public float timeBetweenAttacks;
     public float radius;
@@ -21,6 +22,23 @@ public class enemyMoveAttack : MonoBehaviour
 
     private character_movement playermove;
     public CharacterController controller;
+
+    private void Awake()
+    {
+        FindFirstObjectByType<rngSpawn>().liveEnemyCount++;
+        FindFirstObjectByType<rngSpawn>().totalEnemyCount++;
+
+        player = GameObject.FindWithTag("Player");
+    }
+
+    private void OnDestroy()
+    {
+        FindFirstObjectByType<rngSpawn>().liveEnemyCount--;
+        Debug.Log("enemy die");
+
+        
+    }
+
     void Start()
     {
         currentHealth = enemyData.maxhealth;
@@ -33,7 +51,7 @@ public class enemyMoveAttack : MonoBehaviour
     {
        
         
-        if (player != null)
+        if (player != null) 
         {
             transform.LookAt(player.transform);
             controller.Move(transform.forward * enemyData.speed * Time.deltaTime);
@@ -91,6 +109,7 @@ public class enemyMoveAttack : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+
     }
 
     //draw gizmos for attack radius
