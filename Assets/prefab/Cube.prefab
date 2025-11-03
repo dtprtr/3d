@@ -149,7 +149,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 43a3af10d71e1df4eb0c62433c112a62, type: 2}
   currentHealth: 0
-  player: {fileID: 2977443167949794637, guid: 5e591d559657ec442863da2f7e48fd1e, type: 3}
-  timeBetweenAttacks: 100
-  canAttack: 0
+  timeBetweenAttacks: 2
+  radius: 1
   controller: {fileID: 6080662896246656538}

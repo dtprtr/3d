@@ -8,19 +8,22 @@ public class character_movement : MonoBehaviour
     private CharacterController controller;
     public float speed = 5f;
 
+    private healthBar healthBar;
 
     public float currentHealth;
     public float maxHealth;
 
-    
 
-    private void Start()
-
+    private void Awake()
     {
-       
         controller = GetComponent<CharacterController>();
+    }
+    private void Start()
+    {
+        
+        
 
-
+        
     }
 
     // Update is called once per frame
@@ -36,13 +39,13 @@ public class character_movement : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
         
 
-        
+       
        
 
     }
 
     public void TakeDamage(float damage)
-    {
+    { 
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
