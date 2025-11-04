@@ -13,6 +13,9 @@ public class character_movement : MonoBehaviour
     public float currentHealth;
     public float maxHealth;
 
+    public int killCount;
+    
+
 
     private void Awake()
     {
@@ -46,6 +49,7 @@ public class character_movement : MonoBehaviour
 
     public void TakeDamage(float damage)
     { 
+
         currentHealth -= damage;
         if (currentHealth <= 0)
         {

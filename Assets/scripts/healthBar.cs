@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class healthBar : MonoBehaviour
 {
-    character_movement character;
+    public character_movement character;
     public Image healbar;
 
     private void Start()

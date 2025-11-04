@@ -150,5 +150,5 @@ MonoBehaviour:
   enemyData: {fileID: 11400000, guid: 43a3af10d71e1df4eb0c62433c112a62, type: 2}
   currentHealth: 0
   timeBetweenAttacks: 2
-  radius: 1
+  radius: 1.1
   controller: {fileID: 6080662896246656538}
