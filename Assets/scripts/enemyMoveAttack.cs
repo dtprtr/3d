@@ -27,7 +27,7 @@ public class enemyMoveAttack : MonoBehaviour
     {
         FindFirstObjectByType<rngSpawn>().liveEnemyCount++;
         FindFirstObjectByType<rngSpawn>().totalEnemyCount++;
-
+        
         player = GameObject.FindWithTag("Player");
     }
 
@@ -36,7 +36,7 @@ public class enemyMoveAttack : MonoBehaviour
         FindFirstObjectByType<rngSpawn>().liveEnemyCount--;
         Debug.Log("enemy die");
 
-        
+        playermove.currScore++;
     }
 
     void Start()
@@ -49,8 +49,8 @@ public class enemyMoveAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        
+
+      
         if (player != null) 
         {
             transform.LookAt(player.transform);
@@ -104,6 +104,7 @@ public class enemyMoveAttack : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            
         }
     }
     void Die()

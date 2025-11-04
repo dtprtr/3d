@@ -7,26 +7,24 @@ public class character_movement : MonoBehaviour
 {
     private CharacterController controller;
     public float speed = 5f;
-
-    private healthBar healthBar;
-
+   
     public float currentHealth;
     public float maxHealth;
 
-    public int killCount;
-    
+    private float invinciblity;
+    public float invincibiltyTime;
 
+    public TextMeshProUGUI killCountText;
+    [HideInInspector] public int currScore;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
     }
+
     private void Start()
     {
-        
-        
 
-        
     }
 
     // Update is called once per frame
@@ -40,27 +38,39 @@ public class character_movement : MonoBehaviour
             move = move.normalized;
         }
         controller.Move(move * speed * Time.deltaTime);
-        
 
-       
-       
+
+        invinciblity -= Time.deltaTime;
+
+        killCountText.text = currScore.ToString("0");
 
     }
 
     public void TakeDamage(float damage)
-    { 
+    {
+        if (invinciblity > 0)
+            return;
+
+        invinciblity = invincibiltyTime;
 
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
             Die();
         }
+
     }
-    
-   void Die()
-   {
+
+
+
+    void Die()
+    {
         Destroy(gameObject);
         Debug.Log("Player has died.");
-   }
-    
+    }
+
+
 }
+
+
+   
