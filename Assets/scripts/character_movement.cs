@@ -61,6 +61,7 @@ public class character_movement : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        
         if (invinciblity > 0)
             return;
 
