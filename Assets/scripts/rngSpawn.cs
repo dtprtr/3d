@@ -25,11 +25,11 @@ public class rngSpawn : MonoBehaviour
                 zPos = Random.Range(-25, 25);
                 Instantiate(theEnemy.enemyPrefab, new Vector3(xPos, 0, zPos), Quaternion.identity);
 
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(0.1f);
             }
 
             yield return new WaitUntil(() => liveEnemyCount < 1);
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(4f);
 
             totalEnemyCount = 0;
             liveEnemyCount = 0;
