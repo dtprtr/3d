@@ -25,7 +25,8 @@ public class character_movement : MonoBehaviour
 
     private void OnDestroy()
     {
-        gameOverPan.SetActive(true);
+        if (gameOverPan != null)
+            gameOverPan.SetActive(true);
         gameOverNum.text = gameOverScore.ToString("0");
         Time.timeScale = 0f;
     }

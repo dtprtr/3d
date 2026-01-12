@@ -1,6 +1,5 @@
 using JetBrains.Annotations;
 using System;
-
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -33,6 +32,7 @@ public class enemyMoveAttack : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (player != null)
         FindFirstObjectByType<rngSpawn>().liveEnemyCount--;
         Debug.Log("enemy die");
 

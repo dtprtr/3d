@@ -4,10 +4,6 @@ using System.Collections.Generic;
 using System;
 public class lookAtMouse : MonoBehaviour
 {
-
-    float angle;
-
-    
     void Update()
     {
         LAmouse();

@@ -15,6 +15,7 @@ public class healthBar : MonoBehaviour
 
     private void Update()
     {
-        healbar.fillAmount = Mathf.Clamp(character.currentHealth / character.maxHealth, 0, 1);
+        if (character != null)
+            healbar.fillAmount = Mathf.Clamp(character.currentHealth / character.maxHealth, 0, 1);
     }
 }
