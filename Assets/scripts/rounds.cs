@@ -6,19 +6,25 @@ public class rounds : MonoBehaviour
 {
     public TextMeshProUGUI roundNum;
     public int roundNumIndex = 1;
-    public rngSpawn character;
+    public rngSpawn spawner;
 
     private void Start()
     {
-        character = GetComponent<rngSpawn>();
+        spawner = FindFirstObjectByType<rngSpawn>();
     }
     public void Update()
     {
-        roundNum.text = roundNumIndex.ToString();
+        roundNum.text = roundNumIndex.ToString("round:" + roundNumIndex);
+        
+       
+    }
+    public void nextRound()
+    {
+       if(spawner.liveEnemyCount < 1)
+       {
+           roundNumIndex++;
+            
+       }
 
-        if (character.liveEnemyCount <= 1 )
-        {
-            roundNumIndex++;             
-        }
     }
 }

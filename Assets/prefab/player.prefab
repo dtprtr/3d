@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 7088317539784791313}
   - component: {fileID: 5300129882943520285}
   - component: {fileID: -2668488800312062882}
+  - component: {fileID: 8925640131387873417}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -162,7 +163,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  gravity: -9.81
+  gameOverPan: {fileID: 0}
+  gameOverNum: {fileID: 0}
+  gameOverScore: 0
+  currentHealth: 0
+  maxHealth: 0
+  invincibiltyTime: 0
+  killCountText: {fileID: 0}
+  currScore: 0
 --- !u!114 &7088317539784791313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +222,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477241d5439be7140b1d196b26eac7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8925640131387873417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2977443167949794637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebae57f68970c2b4fb04f923898052c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundNum: {fileID: 0}
+  roundNumIndex: 1
+  spawner: {fileID: 0}
 --- !u!1 &3883938719636901614
 GameObject:
   m_ObjectHideFlags: 0
