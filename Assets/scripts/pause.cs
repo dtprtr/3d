@@ -1,14 +1,19 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class pause : MonoBehaviour
-{ private bool isPaused = false;
+{ 
+    private bool isPaused = false;
     public GameObject pauseMenu;
+
     void Update()
-    { if (Input.GetKeyDown(KeyCode.Escape))
-        
-      if (isPaused)
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            //PauseGame();
+
+        if (isPaused)
       {
         ResumeGame();
       }
@@ -16,14 +21,7 @@ public class pause : MonoBehaviour
       {
         PauseGame();
       }
-
-
-
-
-
     }
-
-
 
      void PauseGame()
      {

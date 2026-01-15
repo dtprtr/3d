@@ -20,7 +20,7 @@ public class rounds : MonoBehaviour
     }
     public void nextRound()
     {
-       if(spawner.liveEnemyCount < 1)
+       if(spawner.spawntime < 1f)
        {
            roundNumIndex++;
             

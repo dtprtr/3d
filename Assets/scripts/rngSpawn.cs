@@ -13,7 +13,11 @@ public class rngSpawn : MonoBehaviour
     public int totalEnemyCount;
     public int liveEnemyCount;
     public float rand = 15f;
-    public float saftyRadius = 5f;
+    public float saftyRadius;
+
+    public float spawntime;
+    public float spawnDelay;
+    public float amountOfEnemies;
 
     public character_movement character;
     
@@ -30,7 +34,7 @@ public class rngSpawn : MonoBehaviour
         while (true)
         {
             
-            while (totalEnemyCount < 5)
+            while (totalEnemyCount < amountOfEnemies)
             {
                 xPos = character.transform.position.x + UnityEngine.Random.Range(-rand, rand);
                 zPos = character.transform.position.z + UnityEngine.Random.Range(-rand, rand);
@@ -45,11 +49,11 @@ public class rngSpawn : MonoBehaviour
 
                 Instantiate(theEnemy.enemyPrefab, new Vector3(xPos, 0, zPos), Quaternion.identity);
 
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(UnityEngine.Random.Range(-spawnDelay, spawnDelay));
             }
 
             yield return new WaitUntil(() => liveEnemyCount < 1);
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(spawntime);
 
             totalEnemyCount = 0;
             liveEnemyCount = 0;
