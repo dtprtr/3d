@@ -16,15 +16,21 @@ public class rounds : MonoBehaviour
     {
         roundNum.text = roundNumIndex.ToString("round:" + roundNumIndex);
         
-       
+       nextRound();
     }
     public void nextRound()
     {
        if(spawner.spawntime < 1f)
        {
-           roundNumIndex++;
-            
-       }
+            WaitUntil wait = new WaitUntil(() => spawner.liveEnemyCount < 1);
+            while (wait.keepWaiting == false)
+            {
+                roundNumIndex++;
+
+                spawner.amountOfEnemies += 2;
+            }
+
+        }
 
     }
 }
